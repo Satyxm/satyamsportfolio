@@ -99,7 +99,7 @@ function ProcessCard({ step, index }: { step: typeof processSteps[0], index: num
 
 export default function Process() {
   return (
-    <section className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+    <section className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
@@ -141,7 +141,9 @@ export default function Process() {
         </motion.div>
 
         {/* Technology Crawler */}
-        <TechnologyCrawler />
+        <div className="overflow-hidden">
+          <TechnologyCrawler />
+        </div>
       </div>
     </section>
   );

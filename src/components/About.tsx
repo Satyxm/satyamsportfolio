@@ -331,46 +331,60 @@ function Snake() {
 export default function About() {
   return (
     <section id="about" className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="space-y-8 sm:space-y-10"
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-              About Me
-            </h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm a passionate software engineer with a keen eye for detail and a love for creating elegant solutions. 
-              My journey in tech has been driven by curiosity and a desire to build meaningful applications that make a difference.
-            </p>
-            <div className="relative mt-8 sm:mt-12">
-              <Snake />
-            </div>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 sm:p-8">
-              <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-6 sm:mb-8">
-                Latest Updates
-              </h3>
-              <div className="space-y-6 sm:space-y-8 max-h-[500px] overflow-y-auto pr-2">
-                {tweets.slice(0, 5).map((tweet, index) => (
-                  <TweetCard key={index} tweet={tweet} />
-                ))}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white">About Me</h2>
+              <div className="space-y-4 text-gray-600 dark:text-gray-300">
+                <p>
+                  A passionate Computer Science student with expertise in software development and machine learning. 
+                  I love solving complex problems and building innovative solutions.
+                </p>
+                <div className="space-y-2">
+                  <p>&gt; Final year CSE student</p>
+                  <p>&gt; Works worldwide remotely</p>
+                  <p>&gt; Open source contributor</p>
+                  <p>&gt; Building in public</p>
+                  <p>&gt; Always upskilling</p>
+                </div>
+                <div className="flex flex-wrap gap-4">
+                  <a href="#" className="text-blue-500 hover:text-blue-600 transition-colors font-medium">
+                    Want to know more? View my CV →
+                  </a>
+                </div>
+              </div>
+              <div className="pt-4 h-16">
+                <Snake />
               </div>
             </div>
-          </motion.div>
-        </div>
+            
+            <div className="relative h-[500px] overflow-hidden">
+              <motion.div
+                className="absolute inset-0"
+                animate={{
+                  y: [0, -1000],
+                }}
+                transition={{
+                  duration: 20,
+                  repeat: Infinity,
+                  ease: "linear",
+                  repeatType: "loop"
+                }}
+              >
+                {[...tweets, ...tweets].map((tweet, index) => (
+                  <TweetCard key={index} tweet={tweet} />
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -45,26 +45,15 @@ const projects = [
 function ProjectCard({ project }: { project: typeof projects[0] }) {
   return (
     <motion.div
-      className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 transform transition-all duration-300 hover:scale-105"
-      whileHover={{ 
-        rotateY: 10,
-        transition: {
-          type: "spring",
-          stiffness: 300,
-          damping: 20
-        }
-      }}
-      style={{
-        transformStyle: 'preserve-3d',
-        perspective: 1000,
-        boxShadow: '0 4px 20px -2px rgba(0, 0, 0, 0.1), 0 2px 8px -1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05)',
-      }}
+      className="group relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 mx-4 min-w-[350px]"
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
       {/* Card Border */}
-      <div className="absolute inset-0 border-2 sm:border-4 border-gray-200 dark:border-gray-700 rounded-2xl" />
+      <div className="absolute inset-0 border-2 border-gray-200 dark:border-gray-700 rounded-2xl" />
       
       {/* Project Image */}
-      <div className="relative h-[200px] sm:h-[250px] overflow-hidden">
+      <div className="relative h-[250px] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600">
           <div className="absolute inset-0 flex items-center justify-center text-gray-400">
             Project Image
@@ -73,23 +62,23 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
       </div>
 
       {/* Project Details */}
-      <div className="p-4 sm:p-6 space-y-3 sm:space-y-4">
+      <div className="p-6 space-y-4">
         <div className="flex items-center justify-between">
-          <span className="px-2 sm:px-3 py-1 text-xs sm:text-sm font-medium bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full">
+          <span className="px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full">
             {project.category}
           </span>
           <div className="flex space-x-2">
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-red-500" />
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-yellow-500" />
-            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-500" />
+            <div className="w-2 h-2 rounded-full bg-red-500" />
+            <div className="w-2 h-2 rounded-full bg-yellow-500" />
+            <div className="w-2 h-2 rounded-full bg-green-500" />
           </div>
         </div>
 
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
           {project.title}
         </h3>
 
-        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">
+        <p className="text-gray-600 dark:text-gray-300">
           {project.description}
         </p>
       </div>
@@ -99,30 +88,34 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
 
 export default function Portfolio() {
   return (
-    <section id="work" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <section id="work" className="py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12 text-center"
+          className="text-3xl font-bold mb-12 text-center"
         >
           Selected Work
         </motion.h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <ProjectCard project={project} />
-            </motion.div>
-          ))}
+        <div className="relative overflow-hidden">
+          <motion.div
+            className="flex space-x-4"
+            animate={{
+              x: [-1000, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {[...projects, ...projects].map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

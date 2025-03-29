@@ -50,7 +50,7 @@ const blogs = [
   {
     title: "Understanding Large Language Models: A Technical Deep Dive",
     excerpt: "A comprehensive look at how LLMs work, their limitations, and their potential impact on software development.",
-    readTime: "7 min read",
+    readTime: "4 min read",
     date: "March 10, 2024",
     tags: ["LLM", "Machine Learning", "Technical", "AI"],
     author: "Satyam Singh",
@@ -141,9 +141,20 @@ function BlogCard({ blog }: { blog: typeof blogs[0] }) {
           </div>
           <span className="text-sm text-gray-600 dark:text-gray-300">{blog.author}</span>
         </div>
-        <button className="text-sm sm:text-base text-blue-500 hover:text-blue-600 transition-colors font-medium">
+        <a
+          href={
+            blog.title === "The Future of AGI: A Developer's Perspective" 
+              ? "https://satyams.hashnode.dev/the-future-of-agi-a-developers-perspective"
+              : blog.title === "Understanding Large Language Models: A Technical Deep Dive"
+              ? "https://satyams.hashnode.dev/understanding-large-language-models-a-technical-deep-dive"
+              : "#"
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm sm:text-base text-blue-500 hover:text-blue-600 transition-colors font-medium"
+        >
           Read more →
-        </button>
+        </a>
       </div>
     </motion.article>
   );

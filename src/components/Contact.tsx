@@ -68,7 +68,32 @@ export default function Contact() {
             
             {/* Social icons dock */}
             <div className="flex justify-center space-x-6 sm:space-x-8 p-4 sm:p-6">
-              {socialLinks.map((social) => (
+              {[
+                {
+                  name: 'LinkedIn',
+                  icon: FaLinkedin,
+                  url: 'https://linkedin.com/in/satyams-in',
+                  color: 'hover:text-blue-600'
+                },
+                {
+                  name: 'GitHub',
+                  icon: FaGithub,
+                  url: 'https://github.com/satyxm',
+                  color: 'hover:text-gray-900 dark:hover:text-white'
+                },
+                {
+                  name: 'Twitter',
+                  icon: FaTwitter,
+                  url: 'https://twitter.com/satyamtwts',
+                  color: 'hover:text-blue-400'
+                },
+                {
+                  name: 'Discord',
+                  icon: FaDiscord,
+                  url: 'https://discord.com/users/satyam4834',
+                  color: 'hover:text-indigo-500'
+                }
+              ].map((social) => (
                 <motion.a
                   key={social.name}
                   href={social.url}

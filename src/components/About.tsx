@@ -106,8 +106,10 @@ function TweetCard({ tweet }: { tweet: typeof tweets[0] }) {
     >
       <div className="flex space-x-3">
         <div className="flex-shrink-0">
-          <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
-            S
+          <div 
+            className="w-10 h-10 rounded-full overflow-hidden bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url('/profile.jpg')` }}
+          >
           </div>
         </div>
         <div className="flex-1">

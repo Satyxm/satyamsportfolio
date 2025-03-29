@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import TechnologyCrawler from './TechnologyCrawler';
 
 const processSteps = [
   {
@@ -98,12 +99,13 @@ function ProcessCard({ step, index }: { step: typeof processSteps[0], index: num
 
 export default function Process() {
   return (
-    <section id="process" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-20"
         >
@@ -115,11 +117,31 @@ export default function Process() {
           </p>
         </motion.div>
 
+        {/* Process Steps */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
           {processSteps.map((step, index) => (
             <ProcessCard key={index} step={step} index={index} />
           ))}
         </div>
+
+        {/* Technology Stack */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-12 sm:mb-20 mt-16 sm:mt-24"
+        >
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
+            Modern Tech Stack
+          </h2>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
+            Leveraging cutting-edge technologies to build scalable and performant applications.
+          </p>
+        </motion.div>
+
+        {/* Technology Crawler */}
+        <TechnologyCrawler />
       </div>
     </section>
   );

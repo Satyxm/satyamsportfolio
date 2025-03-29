@@ -107,17 +107,17 @@ const blogs = [
 function BlogCard({ blog }: { blog: typeof blogs[0] }) {
   return (
     <motion.article
-      className="bg-white dark:bg-gray-800 rounded-xl p-6 mb-6 border border-gray-200 dark:border-gray-700"
+      className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 border border-gray-200 dark:border-gray-700"
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex items-center space-x-2">
-          <span className="text-sm text-gray-500">{blog.readTime}</span>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-4">
+        <div className="flex items-center space-x-2 text-sm">
+          <span className="text-gray-500">{blog.readTime}</span>
           <span className="text-gray-300">•</span>
-          <span className="text-sm text-gray-500">{blog.date}</span>
+          <span className="text-gray-500">{blog.date}</span>
         </div>
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap gap-2">
           {blog.tags.map((tag, index) => (
             <span
               key={index}
@@ -128,20 +128,20 @@ function BlogCard({ blog }: { blog: typeof blogs[0] }) {
           ))}
         </div>
       </div>
-      <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
         {blog.title}
       </h2>
-      <p className="text-gray-600 dark:text-gray-300 mb-4">
+      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
         {blog.excerpt}
       </p>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">
+          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-500 flex items-center justify-center text-white text-sm sm:text-base font-bold">
             {blog.author[0]}
           </div>
           <span className="text-sm text-gray-600 dark:text-gray-300">{blog.author}</span>
         </div>
-        <button className="text-blue-500 hover:text-blue-600 transition-colors font-medium">
+        <button className="text-sm sm:text-base text-blue-500 hover:text-blue-600 transition-colors font-medium">
           Read more →
         </button>
       </div>
@@ -151,25 +151,25 @@ function BlogCard({ blog }: { blog: typeof blogs[0] }) {
 
 export default function Blog() {
   return (
-    <section id="blog" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="blog" className="py-12 sm:py-20 px-4 sm:px-6 lg:px-8 scroll-mt-16">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="space-y-8"
+          className="space-y-6 sm:space-y-8"
         >
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
               Blog
             </h1>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
               Thoughts, insights, and technical deep dives into the world of software development and technology.
             </p>
           </div>
           
-          <div className="grid gap-6">
+          <div className="grid gap-4 sm:gap-6">
             {blogs.map((blog, index) => (
               <BlogCard key={index} blog={blog} />
             ))}

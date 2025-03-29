@@ -69,21 +69,21 @@ function ProcessCard({ step, index }: { step: typeof steps[0], index: number }) 
       <div className={`absolute inset-0 bg-gradient-to-br ${step.color} dark:${step.darkColor} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
       
       {/* Card Content */}
-      <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+      <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
         {/* Icon Container */}
-        <div className="relative mb-6">
+        <div className="relative mb-6 sm:mb-8">
           <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-xl transform rotate-3" />
-          <div className="relative text-4xl transform -rotate-3">
+          <div className="relative text-3xl sm:text-4xl transform -rotate-3">
             {step.icon}
           </div>
         </div>
 
         {/* Content */}
-        <div className="space-y-4">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+        <div className="space-y-3 sm:space-y-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
             {step.title}
           </h3>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
             {step.description}
           </p>
         </div>
@@ -98,24 +98,24 @@ function ProcessCard({ step, index }: { step: typeof steps[0], index: number }) 
 
 export default function Process() {
   return (
-    <section id="process" className="py-20 px-4 sm:px-6 lg:px-8">
+    <section id="process" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-20"
         >
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             Design Process
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
             A systematic approach to creating exceptional user experiences through thoughtful design and careful consideration of user needs.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
           {steps.map((step, index) => (
             <ProcessCard key={index} step={step} index={index} />
           ))}

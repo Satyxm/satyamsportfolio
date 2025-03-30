@@ -51,7 +51,7 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             className="text-xl font-semibold"
           >
-            Satyam Singh
+           サティアム
           </motion.div>
           
           {/* Desktop Navigation */}

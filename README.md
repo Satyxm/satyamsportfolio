@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website for Satyam Singh, a product designer. Built with Next.js, Tailwind CSS, and Framer Motion.
 
-## Features
+## Features (News features coming soon)
 
 - 🎨 Modern and clean design
 - 🌓 Dark mode support
